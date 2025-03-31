@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "build-db": "node scripts/generate-db.js",
     "server": "npm run build-db && json-server --watch db.json --port 8000",
-    "copy-properties": "node scripts/copy-properties.js"
+    "copy": "node scripts/copy-properties.js"
   },
   "dependencies": {
     "@vicons/ionicons5": "^0.13.0",

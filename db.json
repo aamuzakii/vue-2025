@@ -17,6 +17,141 @@
       "listed_date": "2025-02-25",
       "listing_agent": "Liam Chen",
       "id": 2
+    },
+    {
+      "address": "77 Collins Street, Melbourne VIC 3000",
+      "listing_type": "For Sale",
+      "price": 950000,
+      "status": "Active",
+      "listed_date": "2025-03-10",
+      "listing_agent": "Sophie Williams",
+      "id": 1
+    },
+    {
+      "address": "12 Brunswick Road, Brunswick VIC 3056",
+      "listing_type": "For Rent",
+      "price": 580,
+      "status": "Leased",
+      "listed_date": "2025-02-25",
+      "listing_agent": "Liam Chen",
+      "id": 2
+    },
+    {
+      "address": "34 Queen Street, Melbourne VIC 3000",
+      "listing_type": "For Rent",
+      "price": 1200,
+      "status": "Active",
+      "listed_date": "2025-03-15",
+      "listing_agent": "Emma Johnson",
+      "id": 3
+    },
+    {
+      "address": "56 Albert Street, Richmond VIC 3121",
+      "listing_type": "For Sale",
+      "price": 1450000,
+      "status": "Active",
+      "listed_date": "2025-03-12",
+      "listing_agent": "John Smith",
+      "id": 4
+    },
+    {
+      "address": "78 Victoria Street, Fitzroy VIC 3065",
+      "listing_type": "For Rent",
+      "price": 850,
+      "status": "Active",
+      "listed_date": "2025-03-18",
+      "listing_agent": "Alice Brown",
+      "id": 5
+    },
+    {
+      "address": "22 Smith Street, Collingwood VIC 3066",
+      "listing_type": "For Sale",
+      "price": 760000,
+      "status": "Active",
+      "listed_date": "2025-03-20",
+      "listing_agent": "Michael Taylor",
+      "id": 6
+    },
+    {
+      "address": "88 Chapel Street, Prahran VIC 3181",
+      "listing_type": "For Rent",
+      "price": 1500,
+      "status": "Active",
+      "listed_date": "2025-03-16",
+      "listing_agent": "Sarah Miller",
+      "id": 7
+    },
+    {
+      "address": "45 Lonsdale Street, Melbourne VIC 3000",
+      "listing_type": "For Sale",
+      "price": 1180000,
+      "status": "Active",
+      "listed_date": "2025-03-22",
+      "listing_agent": "David Lee",
+      "id": 8
+    },
+    {
+      "address": "99 Dandenong Road, Caulfield VIC 3162",
+      "listing_type": "For Rent",
+      "price": 1050,
+      "status": "Active",
+      "listed_date": "2025-03-23",
+      "listing_agent": "Sophia Green",
+      "id": 9
+    },
+    {
+      "address": "150 Clarendon Street, South Melbourne VIC 3205",
+      "listing_type": "For Sale",
+      "price": 1550000,
+      "status": "Active",
+      "listed_date": "2025-03-25",
+      "listing_agent": "Oliver King",
+      "id": 10
+    },
+    {
+      "address": "17 Church Street, Brighton VIC 3186",
+      "listing_type": "For Rent",
+      "price": 2000,
+      "status": "Active",
+      "listed_date": "2025-03-30",
+      "listing_agent": "Ethan Scott",
+      "id": 11
+    },
+    {
+      "address": "28 High Street, Kew VIC 3101",
+      "listing_type": "For Sale",
+      "price": 2200000,
+      "status": "Active",
+      "listed_date": "2025-03-28",
+      "listing_agent": "Olivia Wright",
+      "id": 12
+    },
+    {
+      "address": "12 Swanston Street, Melbourne VIC 3000",
+      "listing_type": "For Rent",
+      "price": 950,
+      "status": "Active",
+      "listed_date": "2025-03-26",
+      "listing_agent": "James Harris",
+      "id": 13
+    },
+    {
+      "address": "67 Park Street, St Kilda VIC 3182",
+      "listing_type": "For Sale",
+      "price": 1380000,
+      "status": "Active",
+      "listed_date": "2025-03-27",
+      "listing_agent": "Charlotte Adams",
+      "id": 14
+    },
+    {
+      "address": "33 Canterbury Road, Box Hill VIC 3128",
+      "listing_type": "For Rent",
+      "price": 1150,
+      "status": "Active",
+      "listed_date": "2025-03-29",
+      "listing_agent": "Lucas Harris",
+      "id": 15
     }
   ]
 }

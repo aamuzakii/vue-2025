@@ -1,14 +1,10 @@
 <script setup>
-import { RouterLink, useRoute } from 'vue-router';
-import logo from '@/assets/img/logo.png';
-import { ref } from 'vue';
-import { 
-  VTextField, 
-  VIcon, 
-  VBtn 
-} from 'vuetify/components';
+import { RouterLink, useRoute } from "vue-router";
+import logo from "@/assets/img/logo.png";
+import { ref } from "vue";
+import { VTextField, VIcon, VBtn } from "vuetify/components";
 
-const search = ref('');
+const search = ref("");
 
 const isActiveLink = (routePath) => {
   const route = useRoute();
@@ -38,27 +34,19 @@ const isActiveLink = (routePath) => {
               placeholder="Search properties"
               prepend-inner-icon="mdi-magnify"
               class="bg-white rounded-md"
+              style="width: 400px"
               hide-details
             ></v-text-field>
+
             <div class="flex items-center space-x-4">
               <div class="flex items-center">
-                <v-btn 
-                  icon 
-                  variant="outlined" 
-                  color="white"
-                  class="mr-2"
-                >
+                <v-btn icon variant="outlined" color="white" class="mr-2">
                   <v-icon>mdi-cog</v-icon>
                 </v-btn>
                 <span class="text-white text-sm">Settings</span>
               </div>
               <div class="flex items-center">
-                <v-btn 
-                  icon 
-                  variant="outlined" 
-                  color="white"
-                  class="mr-2"
-                >
+                <v-btn icon variant="outlined" color="white" class="mr-2">
                   <v-icon>mdi-plus</v-icon>
                 </v-btn>
                 <span class="text-white text-sm">New</span>
@@ -82,9 +70,7 @@ const isActiveLink = (routePath) => {
       </div>
       <!-- bottom part -->
       <div class="flex h-20 items-center justify-between">
-        <div
-          class="flex flex-1 items-center md:items-stretch md:justify-start"
-        >
+        <div class="flex flex-1 items-center md:items-stretch md:justify-start">
           <!-- Logo -->
           <div class="">
             <div class="flex space-x-2">

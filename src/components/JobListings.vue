@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import JobListing from './JobListing.vue';
 import { reactive, defineProps, onMounted } from 'vue';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import axios from 'axios';
@@ -18,10 +17,17 @@ const state = reactive({
   isLoading: true,
 });
 
+const headers = [
+  { title: 'Job Title', key: 'title' },
+  { title: 'Company', key: 'company' },
+  { title: 'Location', key: 'location' },
+  { title: 'Salary', key: 'salary' },
+  { title: 'Actions', key: 'actions', sortable: false }
+];
+
 onMounted(async () => {
   try {
     const response = await axios.get('/api/jobs');
-    console.log(response, "<<<")
     state.jobs = response.data;
   } catch (error) {
     console.error('Error fetching jobs', error);
@@ -37,19 +43,29 @@ onMounted(async () => {
       <h2 class="text-3xl font-bold text-green-500 mb-6 text-center">
         Browse Jobs
       </h2>
+      
       <!-- Show loading spinner while loading is true -->
       <div v-if="state.isLoading" class="text-center text-gray-500 py-6">
         <PulseLoader />
       </div>
 
-      <!-- Shoe job listing when done loading -->
-      <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <JobListing
-          v-for="job in state.jobs.slice(0, limit || state.jobs.length)"
-          :key="job.id"
-          :job="job"
-        />
-      </div>
+      <!-- Show job table when done loading -->
+      <v-data-table
+        v-else
+        :headers="headers"
+        :items="state.jobs.slice(0, limit || state.jobs.length)"
+        item-key="id"
+        class="elevation-1"
+      >
+        <template v-slot:item.actions="{ item }">
+          <RouterLink 
+            :to="`/jobs/${item.id}`" 
+            class="text-blue-500 hover:underline"
+          >
+            View Details
+          </RouterLink>
+        </template>
+      </v-data-table>
     </div>
   </section>
 
@@ -57,7 +73,8 @@ onMounted(async () => {
     <RouterLink
       to="/jobs"
       class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-      >View All Jobs</RouterLink
     >
+      View All Jobs
+    </RouterLink>
   </section>
 </template>

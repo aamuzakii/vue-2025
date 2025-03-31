@@ -12,7 +12,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
+      component: JobsView,
     },
     {
       path: '/properties',
@@ -21,17 +21,17 @@ const router = createRouter({
     },
     {
       path: '/properties/:id',
-      name: 'job',
+      name: 'property',
       component: JobView,
     },
     {
       path: '/properties/add',
-      name: 'add-job',
+      name: 'add-property',
       component: AddJobView,
     },
     {
       path: '/properties/edit/:id',
-      name: 'edit-job',
+      name: 'edit-property',
       component: EditJobView,
     },
     {

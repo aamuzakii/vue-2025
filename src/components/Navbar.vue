@@ -67,18 +67,13 @@ const isActiveLink = (routePath) => {
           </div>
         </div>
       </div>
+      <!-- bottom part -->
       <div class="flex h-20 items-center justify-between">
         <div
-          class="flex flex-1 items-center justify-center md:items-stretch md:justify-start"
+          class="flex flex-1 items-center md:items-stretch md:justify-start"
         >
           <!-- Logo -->
-          <RouterLink class="flex flex-shrink-0 items-center mr-4" to="/">
-            <img class="h-10 w-auto" :src="logo" alt="Vue Jobs" />
-            <span class="hidden md:block text-white text-2xl font-bold ml-2"
-              >Vue Jobs</span
-            >
-          </RouterLink>
-          <div class="md:ml-auto">
+          <div class="">
             <div class="flex space-x-2">
               <RouterLink
                 to="/"

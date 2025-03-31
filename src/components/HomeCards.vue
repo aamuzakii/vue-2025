@@ -28,7 +28,7 @@ import Card from '@/components/Card.vue';
             to="/jobs/add"
             class="inline-block bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-green-600"
           >
-            Add Job
+            Add Prop
           </RouterLink>
         </Card>
       </div>

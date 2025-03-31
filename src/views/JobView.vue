@@ -83,16 +83,16 @@ onMounted(async () => {
 
           <div class="bg-white p-6 rounded-lg shadow-md mt-6">
             <h3 class="text-green-800 text-lg font-bold mb-6">
-              Job Description
+              Information
             </h3>
 
             <p class="mb-4">
               {{ state.properties.description }}
             </p>
 
-            <h3 class="text-green-800 text-lg font-bold mb-2">Salary</h3>
+            <h3 class="text-green-800 text-lg font-bold mb-2">Price</h3>
 
-            <p class="mb-4">{{ state.properties.salary }} / Year</p>
+            <p class="mb-4">{{ state.properties.salary }}</p>
           </div>
         </main>
 
@@ -149,7 +149,7 @@ onMounted(async () => {
                   ghost
                   block
                 >
-                  Edit Job
+                  Edit
                 </n-button>
               </RouterLink>
 
@@ -165,7 +165,7 @@ onMounted(async () => {
                     ghost
                     block
                   >
-                    Delete Job
+                    Delete
                   </n-button>
                 </template>
                 Are you sure you want to delete this job?

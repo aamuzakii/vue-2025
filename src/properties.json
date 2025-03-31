@@ -88,50 +88,5 @@
     "listed_date": "2025-03-25",
     "listing_agent": "Oliver King",
     "id": 10
-  },
-  {
-    "address": "17 Church Street, Brighton VIC 3186",
-    "listing_type": "For Rent",
-    "price": 2000,
-    "status": "Active",
-    "listed_date": "2025-03-30",
-    "listing_agent": "Ethan Scott",
-    "id": 11
-  },
-  {
-    "address": "28 High Street, Kew VIC 3101",
-    "listing_type": "For Sale",
-    "price": 2200000,
-    "status": "Active",
-    "listed_date": "2025-03-28",
-    "listing_agent": "Olivia Wright",
-    "id": 12
-  },
-  {
-    "address": "12 Swanston Street, Melbourne VIC 3000",
-    "listing_type": "For Rent",
-    "price": 950,
-    "status": "Active",
-    "listed_date": "2025-03-26",
-    "listing_agent": "James Harris",
-    "id": 13
-  },
-  {
-    "address": "67 Park Street, St Kilda VIC 3182",
-    "listing_type": "For Sale",
-    "price": 1380000,
-    "status": "Active",
-    "listed_date": "2025-03-27",
-    "listing_agent": "Charlotte Adams",
-    "id": 14
-  },
-  {
-    "address": "33 Canterbury Road, Box Hill VIC 3128",
-    "listing_type": "For Rent",
-    "price": 1150,
-    "status": "Active",
-    "listed_date": "2025-03-29",
-    "listing_agent": "Lucas Harris",
-    "id": 15
   }
 ]

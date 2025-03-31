@@ -76,7 +76,7 @@ const handleJobsSelect = (key) => {
 };
 
 const handleAddJobSelect = (key) => {
-  console.log('Add Job dropdown selected:', key);
+  console.log('Add Property dropdown selected:', key);
   // Add navigation logic here
 };
 
@@ -133,19 +133,6 @@ const isActiveLink = (routePath) => {
                 alt="User Avatar"
               />
             </v-avatar>
-            <RouterLink
-              to="/jobs/add"
-              :class="[
-                isActiveLink('/jobs/add')
-                  ? 'bg-green-900'
-                  : 'hover:bg-gray-900 hover:text-black',
-                'text-black',
-                'px-3',
-                'py-2',
-                'rounded-md',
-              ]"
-              >Add Job</RouterLink
-            >
           </div>
         </div>
       </div>

@@ -1,8 +1,9 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
 import logo from "@/assets/img/logo.png";
-import { ref } from "vue";
-import { VTextField, VIcon, VBtn } from "vuetify/components";
+import avatarImage from "@/assets/img/avatar.webp";
+import { ref, computed } from "vue";
+import { VTextField, VIcon, VBtn, VAvatar } from "vuetify/components";
 
 const search = ref("");
 
@@ -52,6 +53,15 @@ const isActiveLink = (routePath) => {
                 <span class="text-white text-sm">New</span>
               </div>
             </div>
+            <v-avatar
+              size="36"
+              class="ml-2"
+            >
+              <img 
+                :src="avatarImage" 
+                alt="User Avatar"
+              />
+            </v-avatar>
             <RouterLink
               to="/jobs/add"
               :class="[

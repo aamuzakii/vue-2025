@@ -12,9 +12,7 @@ import {
   NTag, 
   NDivider, 
   NText,
-  NAlert,
   NPopconfirm,
-  NIcon
 } from 'naive-ui';
 
 const route = useRoute();

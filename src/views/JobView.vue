@@ -58,7 +58,7 @@ onMounted(async () => {
               class="text-gray-500 mb-4 flex align-middle justify-center md:justify-start"
             >
               <i class="pi pi-map-marker text-xl text-orange-700 mr-2"></i>
-              <p class="text-orange-700">{{ state.job.location }}</p>
+              <p class="text-orange-700">{{ state.job.address }}</p>
             </div>
           </div>
 
@@ -95,12 +95,14 @@ onMounted(async () => {
 
             <p class="my-2 bg-green-100 p-2 font-bold">
               <!-- {{ state.job.company.contactEmail }} -->
+                aamuzakii@gmail.com
             </p>
 
             <h3 class="text-xl">Contact Phone:</h3>
 
             <p class="my-2 bg-green-100 p-2 font-bold">
               <!-- {{ state.job.company.contactPhone }} -->
+                + 62 838 9458 8105
             </p>
           </div>
 

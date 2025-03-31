@@ -3,7 +3,8 @@ import { RouterLink, useRoute } from "vue-router";
 import logo from "@/assets/img/logo.png";
 import avatarImage from "@/assets/img/avatar.webp";
 import { ref, computed } from "vue";
-import { VTextField, VIcon, VBtn, VAvatar } from "vuetify/components";
+import { NInput } from "naive-ui";
+import { VIcon, VBtn, VAvatar } from "vuetify/components";
 
 const search = ref("");
 
@@ -28,21 +29,21 @@ const isActiveLink = (routePath) => {
             >
           </RouterLink>
           <div class="md:ml-auto flex items-center space-x-2">
-            <v-text-field
-              v-model="search"
-              variant="outlined"
-              density="compact"
-              placeholder="Search properties"
-              prepend-inner-icon="mdi-magnify"
-              class="bg-white rounded-md"
-              style="width: 400px"
-              hide-details
-            ></v-text-field>
+            <n-input 
+              v-model:value="search" 
+              placeholder="Search properties" 
+              clearable
+              style="width: 400px;"
+            >
+              <template #prefix>
+                <i class="i-mdi-magnify text-gray-500"></i>
+              </template>
+            </n-input>
 
             <div class="flex items-center space-x-4">
               <div class="flex items-center">
                 <v-btn icon variant="outlined" color="white" class="mr-2">
-                  <v-icon class="text-black" >mdi-cog</v-icon>
+                  <v-icon class="text-black">mdi-cog</v-icon>
                 </v-btn>
                 <span class="text-black text-sm">Settings</span>
               </div>
@@ -132,8 +133,5 @@ const isActiveLink = (routePath) => {
 </template>
 
 <style scoped>
-/* Ensure Vuetify text field blends with the design */
-.v-text-field {
-  max-width: 300px;
-}
+/* Additional styling for Naive UI input if needed */
 </style>

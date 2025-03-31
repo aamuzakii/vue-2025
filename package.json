@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^1.7.2",
     "json-server": "^1.0.0-beta.1",
+    "naive-ui": "^2.41.0",
     "primeicons": "^7.0.0",
     "vue": "^3.4.29",
     "vue-router": "^4.4.0",
@@ -21,11 +22,11 @@
     "vuetify": "^3.6.8"
   },
   "devDependencies": {
+    "@mdi/font": "^7.4.47",
     "@vitejs/plugin-vue": "^5.0.5",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
-    "vite": "^5.3.1",
-    "@mdi/font": "^7.4.47"
+    "vite": "^5.3.1"
   }
 }

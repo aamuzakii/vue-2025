@@ -18,17 +18,17 @@ const homeOptions = [
   {
     label: 'Contacts',
     key: 'dashboard',
-    disabled: false
+    disabled: true
   },
   {
     label: 'Task',
     key: 'analytics',
-    disabled: false
+    disabled: true
   },
   {
     label: 'Calendar',
     key: 'analytics',
-    disabled: false
+    disabled: true
   }
 ];
 
@@ -41,7 +41,7 @@ const jobsOptions = [
   {
     label: 'Appraisals',
     key: 'create-job',
-    disabled: false
+    disabled: true
   },
   {
     label: 'Listings',
@@ -54,12 +54,12 @@ const addJobOptions = [
   {
     label: 'Email Campaign',
     key: 'quick-add',
-    disabled: false
+    disabled: true
   },
   {
     label: 'SMS Campaign',
     key: 'detailed-add',
-    disabled: false
+    disabled: true
   }
 ];
 

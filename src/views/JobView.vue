@@ -71,8 +71,8 @@ onMounted(async () => {
           <div
             class="bg-white p-6 rounded-lg shadow-md text-center md:text-left"
           >
-            <div class="text-gray-500 mb-4">{{ state.properties.type }}</div>
-            <h1 class="text-3xl font-bold mb-4">{{ state.properties.title }}</h1>
+            <div class="text-gray-500 mb-4">{{ state.properties.listing_type }}</div>
+            <h1 class="text-3xl font-bold mb-4">{{ state.properties.address }}</h1>
             <div
               class="text-gray-500 mb-4 flex align-middle justify-center md:justify-start"
             >
@@ -87,12 +87,12 @@ onMounted(async () => {
             </h3>
 
             <p class="mb-4">
-              {{ state.properties.description }}
+              {{ state.properties.listing_agent }}
             </p>
 
             <h3 class="text-green-800 text-lg font-bold mb-2">Price</h3>
 
-            <p class="mb-4">{{ state.properties.salary }}</p>
+            <p class="mb-4">{{ state.properties.price }}</p>
           </div>
         </main>
 
@@ -107,9 +107,9 @@ onMounted(async () => {
           >
             <n-space vertical>
               <n-space align="center">
-                <n-tag type="info" size="small">Company Description</n-tag>
+                <n-tag type="info" size="small">Listing Agent</n-tag>
                 <n-text depth="3">
-                  <!-- {{ state.properties.company.description }} -->
+                  {{ state.properties.listing_agent }}
                 </n-text>
               </n-space>
 

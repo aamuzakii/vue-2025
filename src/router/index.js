@@ -1,4 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '@/views/HomeView.vue';
+import JobsView from '@/views/JobsView.vue';
+import NotFoundView from '@/views/NotFoundView.vue';
+import JobView from '@/views/JobView.vue';
+import AddJobView from '@/views/AddJobView.vue';
+import EditJobView from '@/views/EditJobView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -6,43 +12,34 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/views/JobsView.vue')
+      component: JobsView,
     },
     {
       path: '/properties',
       name: 'properties',
-      component: () => import('@/views/JobsView.vue')
+      component: JobsView,
     },
     {
       path: '/properties/:id',
       name: 'property',
-      component: () => import('@/views/JobView.vue')
+      component: JobView,
     },
     {
       path: '/properties/add',
       name: 'add-property',
-      component: () => import('@/views/AddJobView.vue')
+      component: AddJobView,
     },
     {
       path: '/properties/edit/:id',
       name: 'edit-property',
-      component: () => import('@/views/EditJobView.vue')
+      component: EditJobView,
     },
     {
       path: '/:catchAll(.*)',
       name: 'not-found',
-      component: () => import('@/views/NotFoundView.vue')
+      component: NotFoundView,
     },
   ],
-  
-  // Improve performance with scroll behavior
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
-  }
 });
 
 export default router;

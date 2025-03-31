@@ -5,6 +5,17 @@ import { reactive, onMounted } from 'vue';
 import { useRoute, RouterLink, useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
 import axios from 'axios';
+import { 
+  NCard, 
+  NSpace, 
+  NButton, 
+  NTag, 
+  NDivider, 
+  NText,
+  NAlert,
+  NPopconfirm,
+  NIcon
+} from 'naive-ui';
 
 const route = useRoute();
 const router = useRouter();
@@ -78,49 +89,81 @@ onMounted(async () => {
         </main>
 
         <!-- Sidebar -->
-        <aside>
-          <!-- Company Info -->
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-bold mb-6">Company Info</h3>
+        <aside class="space-y-4">
+          <!-- Contact Information -->
+          <n-card 
+            title="Contact Information" 
+            size="small" 
+            embedded 
+            :bordered="true"
+          >
+            <n-space vertical>
+              <n-space align="center">
+                <n-tag type="info" size="small">Company Description</n-tag>
+                <n-text depth="3">
+                  <!-- {{ state.properties.company.description }} -->
+                </n-text>
+              </n-space>
 
-            <!-- <h2 class="text-2xl">{{ state.properties.company.name }}</h2> -->
+              <n-divider />
 
-            <p class="my-2">
-              <!-- {{ state.properties.company.description }} -->
-            </p>
+              <n-space vertical>
+                <n-space align="center">
+                  <n-tag type="success" size="small">Contact Email</n-tag>
+                  <n-space align="center">
+                    <!-- <n-icon :component="EmailOutline" /> -->
+                    <n-text strong>aamuzakii@gmail.com</n-text>
+                  </n-space>
+                </n-space>
 
-            <hr class="my-4" />
+                <n-space align="center">
+                  <n-tag type="success" size="small">Contact Phone</n-tag>
+                  <n-space align="center">
+                    <!-- <n-icon :component="CallOutline" /> -->
+                    <n-text strong>+ 62 838 9458 8105</n-text>
+                  </n-space>
+                </n-space>
+              </n-space>
+            </n-space>
+          </n-card>
 
-            <h3 class="text-xl">Contact Email:</h3>
+          <!-- Manage Job -->
+          <n-card 
+            title="Manage Job" 
+            size="small" 
+            embedded 
+            :bordered="true"
+          >
+            <n-space vertical>
+              <RouterLink :to="`/jobs/edit/${state.properties.id}`">
+                <n-button 
+                  type="default" 
+                  ghost
+                  block
+                >
+                  Edit Job
+                </n-button>
+              </RouterLink>
 
-            <p class="my-2 bg-green-100 p-2 font-bold">
-              <!-- {{ state.properties.company.contactEmail }} -->
-                aamuzakii@gmail.com
-            </p>
-
-            <h3 class="text-xl">Contact Phone:</h3>
-
-            <p class="my-2 bg-green-100 p-2 font-bold">
-              <!-- {{ state.properties.company.contactPhone }} -->
-                + 62 838 9458 8105
-            </p>
-          </div>
-
-          <!-- Manage -->
-          <div class="bg-white p-6 rounded-lg shadow-md mt-6">
-            <h3 class="text-xl font-bold mb-6">Manage Job</h3>
-            <RouterLink
-              :to="`/jobs/edit/${state.properties.id}`"
-              class="bg-green-500 hover:bg-green-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
-              >Edit Job</RouterLink
-            >
-            <button
-              @click="deleteJob"
-              class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
-            >
-              Delete Job
-            </button>
-          </div>
+              <n-popconfirm 
+                @positive-click="deleteJob"
+                positive-text="Delete"
+                negative-text="Cancel"
+                positive-button-type="error"
+              >
+                <template #trigger>
+                  <n-button 
+                    type="error" 
+                    ghost
+                    block
+                  >
+                    Delete Job
+                  </n-button>
+                </template>
+                Are you sure you want to delete this job?
+              </n-popconfirm>
+            </n-space>
+          </n-card>
         </aside>
       </div>
     </div>
@@ -130,3 +173,7 @@ onMounted(async () => {
     <PulseLoader />
   </div>
 </template>
+
+<style scoped>
+/* Additional styling if needed */
+</style>

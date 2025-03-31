@@ -13,24 +13,24 @@ defineProps({
 });
 
 const state = reactive({
-  jobs: [],
+  properties: [],
   isLoading: true,
 });
 
 const headers = [
-  { title: 'Job Title', key: 'title' },
-  { title: 'Company', key: 'company' },
-  { title: 'Location', key: 'location' },
-  { title: 'Salary', key: 'salary' },
+  { title: 'Address', key: 'address' },
+  { title: 'Listing Type', key: 'listing_type' },
+  { title: 'Price', key: 'price' },
+  { title: 'Status', key: 'status' },
   { title: 'Actions', key: 'actions', sortable: false }
 ];
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/jobs');
-    state.jobs = response.data;
+    const response = await axios.get('/api/properties');
+    state.properties = response.data;
   } catch (error) {
-    console.error('Error fetching jobs', error);
+    console.error('Error fetching properties', error);
   } finally {
     state.isLoading = false;
   }
@@ -41,7 +41,7 @@ onMounted(async () => {
   <section class="bg-blue-50 px-4 py-10">
     <div class="container-xl lg:container m-auto">
       <h2 class="text-3xl font-bold text-green-500 mb-6 text-center">
-        Browse Jobs
+        Property Listings
       </h2>
       
       <!-- Show loading spinner while loading is true -->
@@ -49,17 +49,17 @@ onMounted(async () => {
         <PulseLoader />
       </div>
 
-      <!-- Show job table when done loading -->
+      <!-- Show property table when done loading -->
       <v-data-table
         v-else
         :headers="headers"
-        :items="state.jobs.slice(0, limit || state.jobs.length)"
-        item-key="id"
+        :items="state.properties.slice(0, limit || state.properties.length)"
+        item-key="address"
         class="elevation-1"
       >
         <template v-slot:item.actions="{ item }">
           <RouterLink 
-            :to="`/jobs/${item.id}`" 
+            :to="`/properties/${encodeURIComponent(item.address)}`" 
             class="text-blue-500 hover:underline"
           >
             View Details
@@ -71,10 +71,10 @@ onMounted(async () => {
 
   <section v-if="showButton" class="m-auto max-w-lg my-10 px-6">
     <RouterLink
-      to="/jobs"
+      to="/properties"
       class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
     >
-      View All Jobs
+      View All Properties
     </RouterLink>
   </section>
 </template>

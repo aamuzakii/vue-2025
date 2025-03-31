@@ -1,7 +1,7 @@
 <script setup>
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import BackButton from '@/components/BackButton.vue';
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted, computed } from 'vue';
 import { useRoute, RouterLink, useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
 import axios from 'axios';
@@ -21,9 +21,19 @@ const toast = useToast();
 
 const jobId = route.params.id;
 
+const formatPriceAUD = (price) => {
+  return new Intl.NumberFormat('en-AU', {
+    style: 'currency',
+    currency: 'AUD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(price);
+};
+
 const state = reactive({
   job: {},
   isLoading: true,
+  properties: {}
 });
 
 const deleteJob = async () => {
@@ -92,7 +102,7 @@ onMounted(async () => {
 
             <h3 class="text-green-800 text-lg font-bold mb-2">Price</h3>
 
-            <p class="mb-4">{{ state.properties.price }}</p>
+            <p class="mb-4">{{ formatPriceAUD(state.properties.price) }}</p>
           </div>
         </main>
 

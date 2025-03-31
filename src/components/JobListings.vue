@@ -18,6 +18,15 @@ defineProps({
   },
 });
 
+
+const formatPriceAUD = (price) => {
+  return new Intl.NumberFormat('en-AU', {
+    style: 'currency',
+    currency: 'AUD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(price);
+};
 const state = reactive({
   properties: [],
   isLoading: true,
@@ -40,10 +49,13 @@ const columns = [
     }
   },
   {
-    title: 'Price',
-    key: 'price',
-    width: 150,
-  },
+  title: 'Price',
+  key: 'price',
+  width: 150,
+  render(row) {
+    return formatPriceAUD(row.price);
+  }
+},
   {
     title: 'Status',
     key: 'status',

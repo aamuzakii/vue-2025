@@ -35,7 +35,7 @@ const homeOptions = [
 const jobsOptions = [
   {
     label: 'Properties',
-    key: 'job-list',
+    key: 'properties',
     disabled: false
   },
   {
@@ -45,8 +45,8 @@ const jobsOptions = [
   },
   {
     label: 'Listings',
-    key: 'job-categories',
-    disabled: false
+    key: 'listings',
+    disabled: true
   }
 ];
 
@@ -72,7 +72,13 @@ const handleHomeSelect = (key) => {
 
 const handleJobsSelect = (key) => {
   console.log('Jobs dropdown selected:', key);
-  // Add navigation logic here
+  if (key === 'properties') {
+    window.location.href = '/properties';
+  } else if (key === 'create-job') {
+    window.location.href = '/appraisals';
+  } else if (key === 'listings') {
+    window.location.href = '/listings';
+  }
 };
 
 const handleAddJobSelect = (key) => {

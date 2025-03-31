@@ -2,14 +2,80 @@
 import { RouterLink, useRoute } from "vue-router";
 import logo from "@/assets/img/logo.png";
 import avatarImage from "@/assets/img/avatar.webp";
-import { ref, computed } from "vue";
-import { NInput } from "naive-ui";
+import { ref } from "vue";
+import { 
+  NInput, 
+  NIcon, 
+  NDropdown,
+  NSpace,
+  NButton
+} from "naive-ui";
 import { VIcon, VBtn, VAvatar } from "vuetify/components";
+
+const route = useRoute();
+
+const homeOptions = [
+  {
+    label: 'Dashboard',
+    key: 'dashboard',
+    disabled: false
+  },
+  {
+    label: 'Analytics',
+    key: 'analytics',
+    disabled: false
+  }
+];
+
+const jobsOptions = [
+  {
+    label: 'Job List',
+    key: 'job-list',
+    disabled: false
+  },
+  {
+    label: 'Create Job',
+    key: 'create-job',
+    disabled: false
+  },
+  {
+    label: 'Job Categories',
+    key: 'job-categories',
+    disabled: false
+  }
+];
+
+const addJobOptions = [
+  {
+    label: 'Quick Add',
+    key: 'quick-add',
+    disabled: false
+  },
+  {
+    label: 'Detailed Add',
+    key: 'detailed-add',
+    disabled: false
+  }
+];
 
 const search = ref("");
 
+const handleHomeSelect = (key) => {
+  console.log('Home dropdown selected:', key);
+  // Add navigation logic here
+};
+
+const handleJobsSelect = (key) => {
+  console.log('Jobs dropdown selected:', key);
+  // Add navigation logic here
+};
+
+const handleAddJobSelect = (key) => {
+  console.log('Add Job dropdown selected:', key);
+  // Add navigation logic here
+};
+
 const isActiveLink = (routePath) => {
-  const route = useRoute();
   return route.path === routePath;
 };
 </script>
@@ -35,10 +101,9 @@ const isActiveLink = (routePath) => {
               clearable
               style="width: 400px;"
             >
-              <template #prefix>
-                <i class="i-mdi-magnify text-gray-500"></i>
-              </template>
             </n-input>
+
+            
 
             <div class="flex items-center space-x-4">
               <div class="flex items-center">
@@ -84,47 +149,31 @@ const isActiveLink = (routePath) => {
         <div class="flex flex-1 items-center md:items-stretch md:justify-start">
           <!-- Logo -->
           <div class="">
-            <div class="flex space-x-2">
-              <RouterLink
-                to="/"
-                :class="[
-                  isActiveLink('/')
-                    ? 'bg-green-900'
-                    : 'hover:bg-gray-900 hover:text-black',
-                  'text-black',
-                  'px-3',
-                  'py-2',
-                  'rounded-md',
-                ]"
-                >Home</RouterLink
+            <n-space>
+              <n-dropdown 
+                :options="homeOptions" 
+                @select="handleHomeSelect"
+                trigger="hover"
               >
-              <RouterLink
-                to="/jobs"
-                :class="[
-                  isActiveLink('/jobs')
-                    ? 'bg-green-900'
-                    : 'hover:bg-gray-900 hover:text-black',
-                  'text-black',
-                  'px-3',
-                  'py-2',
-                  'rounded-md',
-                ]"
-                >Jobs</RouterLink
+                <n-button>Home</n-button>
+              </n-dropdown>
+
+              <n-dropdown 
+                :options="jobsOptions" 
+                @select="handleJobsSelect"
+                trigger="hover"
               >
-              <RouterLink
-                to="/jobs/add"
-                :class="[
-                  isActiveLink('/jobs/add')
-                    ? 'bg-green-900'
-                    : 'hover:bg-gray-900 hover:text-black',
-                  'text-black',
-                  'px-3',
-                  'py-2',
-                  'rounded-md',
-                ]"
-                >Add Job</RouterLink
+                <n-button>Jobs</n-button>
+              </n-dropdown>
+
+              <n-dropdown 
+                :options="addJobOptions" 
+                @select="handleAddJobSelect"
+                trigger="hover"
               >
-            </div>
+                <n-button>Add Job</n-button>
+              </n-dropdown>
+            </n-space>
           </div>
         </div>
       </div>
@@ -133,5 +182,5 @@ const isActiveLink = (routePath) => {
 </template>
 
 <style scoped>
-/* Additional styling for Naive UI input if needed */
+/* Additional styling for Naive UI components if needed */
 </style>

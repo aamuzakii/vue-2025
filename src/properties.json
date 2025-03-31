@@ -6,7 +6,8 @@
       "price": 950000,
       "status": "Active",
       "listed_date": "2025-03-10",
-      "listing_agent": "Sophie Williams"
+      "listing_agent": "Sophie Williams",
+      "id": 1
     },
     {
       "address": "12 Brunswick Road, Brunswick VIC 3056",
@@ -14,7 +15,8 @@
       "price": 580,
       "status": "Leased",
       "listed_date": "2025-02-25",
-      "listing_agent": "Liam Chen"
+      "listing_agent": "Liam Chen",
+      "id": 2
     }
   ]
   

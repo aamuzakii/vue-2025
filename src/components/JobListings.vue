@@ -54,12 +54,12 @@ onMounted(async () => {
         v-else
         :headers="headers"
         :items="state.properties.slice(0, limit || state.properties.length)"
-        item-key="address"
+        item-key="id"
         class="elevation-1"
       >
         <template v-slot:item.actions="{ item }">
           <RouterLink 
-            :to="`/properties/${encodeURIComponent(item.address)}`" 
+            :to="`/properties/${encodeURIComponent(item.id)}`" 
             class="text-blue-500 hover:underline"
           >
             View Details

@@ -1,8 +1,14 @@
 <script setup>
 import { RouterLink } from 'vue-router';
-import { reactive, defineProps, onMounted } from 'vue';
+import { reactive, defineProps, onMounted, ref, h } from 'vue';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import axios from 'axios';
+import { 
+  NDataTable, 
+  NSpace, 
+  NButton, 
+  NTag 
+} from 'naive-ui';
 
 defineProps({
   limit: Number,
@@ -17,13 +23,65 @@ const state = reactive({
   isLoading: true,
 });
 
-const headers = [
-  { title: 'Address', key: 'address' },
-  { title: 'Listing Type', key: 'listing_type' },
-  { title: 'Price', key: 'price' },
-  { title: 'Status', key: 'status' },
-  { title: 'Actions', key: 'actions', sortable: false }
+const columns = [
+  {
+    title: 'Address',
+    key: 'address',
+    width: 200,
+  },
+  {
+    title: 'Listing Type',
+    key: 'listing_type',
+    width: 150,
+    render(row) {
+      return h(NTag, { 
+        type: row.listing_type === 'Sale' ? 'success' : 'warning' 
+      }, { default: () => row.listing_type })
+    }
+  },
+  {
+    title: 'Price',
+    key: 'price',
+    width: 150,
+  },
+  {
+    title: 'Status',
+    key: 'status',
+    width: 150,
+    render(row) {
+      const statusColorMap = {
+        'Available': 'success',
+        'Pending': 'warning',
+        'Sold': 'error'
+      }
+      return h(NTag, { 
+        type: statusColorMap[row.status] || 'default' 
+      }, { default: () => row.status })
+    }
+  },
+  {
+    title: 'Actions',
+    key: 'actions',
+    width: 150,
+    render(row) {
+      return h(NSpace, null, {
+        default: () => [
+          h(NButton, 
+            { 
+              size: 'small', 
+              onClick: () => navigateToDetails(row.id) 
+            }, 
+            { default: () => 'View Details' }
+          )
+        ]
+      })
+    }
+  }
 ];
+
+const navigateToDetails = (id) => {
+  window.location.href = `/properties/${encodeURIComponent(id)}`;
+};
 
 onMounted(async () => {
   try {
@@ -50,22 +108,13 @@ onMounted(async () => {
       </div>
 
       <!-- Show property table when done loading -->
-      <v-data-table
+      <n-data-table
         v-else
-        :headers="headers"
-        :items="state.properties.slice(0, limit || state.properties.length)"
-        item-key="id"
-        class="elevation-1"
-      >
-        <template v-slot:item.actions="{ item }">
-          <RouterLink 
-            :to="`/properties/${encodeURIComponent(item.id)}`" 
-            class="text-blue-500 hover:underline"
-          >
-            View Details
-          </RouterLink>
-        </template>
-      </v-data-table>
+        :columns="columns"
+        :data="state.properties.slice(0, limit || state.properties.length)"
+        :pagination="false"
+        :bordered="false"
+      />
     </div>
   </section>
 
@@ -78,3 +127,7 @@ onMounted(async () => {
     </RouterLink>
   </section>
 </template>
+
+<style scoped>
+/* Additional styling if needed */
+</style>

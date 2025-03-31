@@ -8,8 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "build-db": "node scripts/generate-db.js",
-    "server": "npm run build-db && json-server --watch db.json --port 8000",
-    "server-single": "json-server --watch src/properties.json --port 8000"
+    "server": "npm run build-db && json-server --watch db.json --port 8000"
   },
   "dependencies": {
     "axios": "^1.7.2",

@@ -40,14 +40,30 @@ const isActiveLink = (routePath) => {
               class="bg-white rounded-md"
               hide-details
             ></v-text-field>
-            <v-btn 
-              icon 
-              variant="outlined" 
-              color="white"
-              class="ml-2"
-            >
-              <v-icon>mdi-cog</v-icon>
-            </v-btn>
+            <div class="flex items-center space-x-4">
+              <div class="flex items-center">
+                <v-btn 
+                  icon 
+                  variant="outlined" 
+                  color="white"
+                  class="mr-2"
+                >
+                  <v-icon>mdi-cog</v-icon>
+                </v-btn>
+                <span class="text-white text-sm">Settings</span>
+              </div>
+              <div class="flex items-center">
+                <v-btn 
+                  icon 
+                  variant="outlined" 
+                  color="white"
+                  class="mr-2"
+                >
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+                <span class="text-white text-sm">New</span>
+              </div>
+            </div>
             <RouterLink
               to="/jobs/add"
               :class="[

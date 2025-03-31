@@ -42,14 +42,24 @@ const deleteJob = async () => {
 
 onMounted(async () => {
   try {
-    const response = await axios.get(`/api/properties/${jobId}`);
-    state.properties = response.data;
+    // Update the URL to fetch directly from the public folder
+    const response = await axios.get(`/properties.json`);
+    
+    // Assuming you're filtering the properties based on jobId
+    const property = response.data.find(item => item.id === jobId);
+    
+    if (property) {
+      state.properties = property;
+    } else {
+      console.log('Property not found');
+    }
   } catch (error) {
     console.error('Error fetching properties', error);
   } finally {
     state.isLoading = false;
   }
 });
+
 </script>
 
 <template>

@@ -16,12 +16,17 @@ const route = useRoute();
 
 const homeOptions = [
   {
-    label: 'Dashboard',
+    label: 'Contacts',
     key: 'dashboard',
     disabled: false
   },
   {
-    label: 'Analytics',
+    label: 'Task',
+    key: 'analytics',
+    disabled: false
+  },
+  {
+    label: 'Calendar',
     key: 'analytics',
     disabled: false
   }
@@ -29,17 +34,17 @@ const homeOptions = [
 
 const jobsOptions = [
   {
-    label: 'Job List',
+    label: 'Properties',
     key: 'job-list',
     disabled: false
   },
   {
-    label: 'Create Job',
+    label: 'Appraisals',
     key: 'create-job',
     disabled: false
   },
   {
-    label: 'Job Categories',
+    label: 'Listings',
     key: 'job-categories',
     disabled: false
   }
@@ -47,12 +52,12 @@ const jobsOptions = [
 
 const addJobOptions = [
   {
-    label: 'Quick Add',
+    label: 'Email Campaign',
     key: 'quick-add',
     disabled: false
   },
   {
-    label: 'Detailed Add',
+    label: 'SMS Campaign',
     key: 'detailed-add',
     disabled: false
   }
@@ -155,7 +160,7 @@ const isActiveLink = (routePath) => {
                 @select="handleHomeSelect"
                 trigger="hover"
               >
-                <n-button>Home</n-button>
+                <n-button>CRM</n-button>
               </n-dropdown>
 
               <n-dropdown 
@@ -163,15 +168,15 @@ const isActiveLink = (routePath) => {
                 @select="handleJobsSelect"
                 trigger="hover"
               >
-                <n-button>Jobs</n-button>
+                <n-button>Properties</n-button>
               </n-dropdown>
 
               <n-dropdown 
-                :options="addJobOptions" 
+                :options="addJobOptions"
                 @select="handleAddJobSelect"
                 trigger="hover"
               >
-                <n-button>Add Job</n-button>
+                <n-button>Marketing</n-button>
               </n-dropdown>
             </n-space>
           </div>

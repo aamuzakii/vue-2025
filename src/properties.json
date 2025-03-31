@@ -1,23 +1,20 @@
-{
-  "properties": [
-    {
-      "address": "77 Collins Street, Melbourne VIC 3000",
-      "listing_type": "For Sale",
-      "price": 950000,
-      "status": "Active",
-      "listed_date": "2025-03-10",
-      "listing_agent": "Sophie Williams",
-      "id": 1
-    },
-    {
-      "address": "12 Brunswick Road, Brunswick VIC 3056",
-      "listing_type": "For Rent",
-      "price": 580,
-      "status": "Leased",
-      "listed_date": "2025-02-25",
-      "listing_agent": "Liam Chen",
-      "id": 2
-    }
-  ]
-  
-}
+[
+  {
+    "address": "77 Collins Street, Melbourne VIC 3000",
+    "listing_type": "For Sale",
+    "price": 950000,
+    "status": "Active",
+    "listed_date": "2025-03-10",
+    "listing_agent": "Sophie Williams",
+    "id": 1
+  },
+  {
+    "address": "12 Brunswick Road, Brunswick VIC 3056",
+    "listing_type": "For Rent",
+    "price": 580,
+    "status": "Leased",
+    "listed_date": "2025-02-25",
+    "listing_agent": "Liam Chen",
+    "id": 2
+  }
+]

@@ -3,7 +3,7 @@ import path from 'path';
 
 const basePath = './src';
 
-const files = ['jobs.json', 'properties.json'];
+const files = ['properties.json'];
 
 const db = {};
 

@@ -46,7 +46,7 @@ onMounted(async () => {
     const response = await axios.get(`/properties.json`);
     
     // Assuming you're filtering the properties based on jobId
-    const property = response.data.find(item => item.id === jobId);
+    const property = response.data.find(item => item.id == jobId);
     
     if (property) {
       state.properties = property;

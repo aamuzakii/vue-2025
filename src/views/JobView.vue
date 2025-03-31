@@ -147,13 +147,13 @@ onMounted(async () => {
 
           <!-- Manage Job -->
           <n-card 
-            title="Manage Job" 
+            title="Manage Property" 
             size="small" 
             embedded 
             :bordered="true"
           >
             <n-space vertical>
-              <RouterLink :to="`/jobs/edit/${state.properties.id}`">
+              <RouterLink :to="`/properties/edit/${state.properties.id}`">
                 <n-button 
                   type="default" 
                   ghost
@@ -178,7 +178,7 @@ onMounted(async () => {
                     Delete
                   </n-button>
                 </template>
-                Are you sure you want to delete this job?
+                Are you sure you want to delete this property?
               </n-popconfirm>
             </n-space>
           </n-card>

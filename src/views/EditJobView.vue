@@ -10,7 +10,7 @@ const route = useRoute();
 const jobId = route.params.id;
 
 const form = reactive({
-  type: 'Full-Time',
+  type: 'House',
   title: '',
   description: '',
   salary: '',
@@ -47,11 +47,11 @@ const handleSubmit = async () => {
 
   try {
     const response = await axios.put(`/api/jobs/${jobId}`, updatedJob);
-    toast.success('Job Updated Successfully');
+    toast.success('Property Updated Successfully');
     router.push(`/jobs/${response.data.id}`);
   } catch (error) {
     console.error('Error fetching job', error);
-    toast.error('Job Was Not Added');
+    toast.error('Property Was Not Added');
   }
 };
 
@@ -84,11 +84,11 @@ onMounted(async () => {
         class="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0"
       >
         <form @submit.prevent="handleSubmit">
-          <h2 class="text-3xl text-center font-semibold mb-6">Edit Job</h2>
+          <h2 class="text-3xl text-center font-semibold mb-6">Edit Property</h2>
 
           <div class="mb-4">
             <label for="type" class="block text-gray-700 font-bold mb-2"
-              >Job Type</label
+              >Property Type</label
             >
             <select
               v-model="form.type"
@@ -97,16 +97,16 @@ onMounted(async () => {
               class="border rounded w-full py-2 px-3"
               required
             >
-              <option value="Full-Time">Full-Time</option>
-              <option value="Part-Time">Part-Time</option>
-              <option value="Remote">Remote</option>
-              <option value="Internship">Internship</option>
+              <option value="House">House</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Condo">Condo</option>
+              <option value="Studio">Studio</option>
             </select>
           </div>
 
           <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2"
-              >Job Listing Name</label
+              >Property Listing Name</label
             >
             <input
               type="text"
@@ -128,13 +128,13 @@ onMounted(async () => {
               name="description"
               class="border rounded w-full py-2 px-3"
               rows="4"
-              placeholder="Add any job duties, expectations, requirements, etc"
+              placeholder="Add any property details, features, amenities, etc"
             ></textarea>
           </div>
 
           <div class="mb-4">
             <label for="type" class="block text-gray-700 font-bold mb-2"
-              >Salary</label
+              >Rental Price</label
             >
             <select
               id="salary"
@@ -143,17 +143,17 @@ onMounted(async () => {
               class="border rounded w-full py-2 px-3"
               required
             >
-              <option value="Under $50K">under $50K</option>
-              <option value="$50K - $60K">$50 - $60K</option>
-              <option value="$60K - $70K">$60 - $70K</option>
-              <option value="$70K - $80K">$70 - $80K</option>
-              <option value="$80K - $90K">$80 - $90K</option>
-              <option value="$90K - $100K">$90 - $100K</option>
-              <option value="$100K - $125K">$100 - $125K</option>
-              <option value="$125K - $150K">$125 - $150K</option>
-              <option value="$150K - $175K">$150 - $175K</option>
-              <option value="$175K - $200K">$175 - $200K</option>
-              <option value="Over $200K">Over $200K</option>
+              <option value="Under $50K">under $1000/month</option>
+              <option value="$50K - $60K">$1000 - $1500/month</option>
+              <option value="$60K - $70K">$1500 - $2000/month</option>
+              <option value="$70K - $80K">$2000 - $2500/month</option>
+              <option value="$80K - $90K">$2500 - $3000/month</option>
+              <option value="$90K - $100K">$3000 - $3500/month</option>
+              <option value="$100K - $125K">$3500 - $4000/month</option>
+              <option value="$125K - $150K">$4000 - $4500/month</option>
+              <option value="$150K - $175K">$4500 - $5000/month</option>
+              <option value="$175K - $200K">$5000 - $5500/month</option>
+              <option value="Over $200K">Over $5500/month</option>
             </select>
           </div>
 
@@ -165,16 +165,16 @@ onMounted(async () => {
               id="location"
               name="location"
               class="border rounded w-full py-2 px-3 mb-2"
-              placeholder="Company Location"
+              placeholder="Property Location"
               required
             />
           </div>
 
-          <h3 class="text-2xl mb-5">Company Info</h3>
+          <h3 class="text-2xl mb-5">Property Owner Info</h3>
 
           <div class="mb-4">
             <label for="company" class="block text-gray-700 font-bold mb-2"
-              >Company Name</label
+              >Owner Name</label
             >
             <input
               type="text"
@@ -182,7 +182,7 @@ onMounted(async () => {
               id="company"
               name="company"
               class="border rounded w-full py-2 px-3"
-              placeholder="Company Name"
+              placeholder="Owner Name"
             />
           </div>
 
@@ -190,7 +190,7 @@ onMounted(async () => {
             <label
               for="company_description"
               class="block text-gray-700 font-bold mb-2"
-              >Company Description</label
+              >Owner Description</label
             >
             <textarea
               id="company_description"
@@ -198,7 +198,7 @@ onMounted(async () => {
               name="company_description"
               class="border rounded w-full py-2 px-3"
               rows="4"
-              placeholder="What does your company do?"
+              placeholder="Tell us about the property owner"
             ></textarea>
           </div>
 
@@ -239,7 +239,7 @@ onMounted(async () => {
               class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Update Job
+              Update Property
             </button>
           </div>
         </form>

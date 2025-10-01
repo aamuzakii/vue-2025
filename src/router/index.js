@@ -6,6 +6,8 @@ import JobView from '@/views/JobView.vue';
 import AddJobView from '@/views/AddJobView.vue';
 import EditJobView from '@/views/EditJobView.vue';
 import YouTubeView from '@/views/YouTubeView.vue';
+import YTPublicPlaylistView from '@/views/YTPublicPlaylistView.vue';
+import YouTubeMergedView from '@/views/YouTubeMergedView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +41,16 @@ const router = createRouter({
       path: '/youtube',
       name: 'youtube',
       component: YouTubeView,
+    },
+    {
+      path: '/yt-public-playlist',
+      name: 'yt-public-playlist',
+      component: YTPublicPlaylistView,
+    },
+    {
+      path: '/youtube-merged',
+      name: 'youtube-merged',
+      component: YouTubeMergedView,
     },
     {
       path: '/:catchAll(.*)',

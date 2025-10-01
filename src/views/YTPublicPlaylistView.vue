@@ -86,66 +86,60 @@ watchEffect(() => {
 </script>
 
 <template>
-  <section class="bg-green-50 min-h-[calc(100vh-160px)]">
-    <div class="container m-auto max-w-4xl py-6 px-4 sm:py-10">
-      <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md border">
-        <h1 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">YouTube Public Playlist</h1>
-        <p class="text-gray-500 mb-4 sm:mb-6">Choose a public playlist to view its videos and play them inline.</p>
+  <div class="p-4 sm:p-6 space-y-4 max-w-4xl mx-auto">
+    <h1 class="text-lg sm:text-xl font-semibold">YouTube Public Playlist</h1>
+    <p class="text-gray-500">Choose a public playlist and play videos inline.</p>
 
-        <div class="flex flex-col gap-2 mb-4">
-          <div class="flex flex-wrap gap-2">
-            <button
-              v-for="opt in playlistOptions"
-              :key="opt.id"
-              type="button"
-              @click="selected = opt.id"
-              class="px-3 py-2 rounded border text-sm"
-              :class="selected === opt.id
-                ? 'bg-green-500 text-white border-green-600'
-                : 'bg-white text-gray-700 hover:bg-green-50 border-gray-300'"
-            >
-              {{ opt.label }}
-            </button>
-          </div>
-        </div>
-
-        <div v-if="error" class="text-red-600 text-sm mb-3">{{ error }}</div>
-
-        <div v-if="currentVideoId" class="aspect-video w-full mb-4">
-          <iframe
-            class="w-full h-full rounded"
-            :src="embedSrc"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          />
-        </div>
-
-        <div v-if="isLoading" class="text-gray-400 text-sm">Loading playlist...</div>
-        <div v-else-if="!isLoading && items.length === 0 && playlistId" class="text-gray-500 text-sm">
-          No videos found, or this playlist may be private.
-        </div>
-
-        <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          <button
-            v-for="v in items"
-            :key="v.videoId"
-            type="button"
-            class="text-left bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow"
-            @click="currentVideoId = v.videoId"
-          >
-            <div class="aspect-video w-full bg-gray-100">
-              <img :src="v.thumbnail" :alt="v.title" class="w-full h-full object-cover" />
-            </div>
-            <div class="p-2 sm:p-3 text-xs sm:text-sm text-gray-800">
-              {{ v.title }}
-            </div>
-          </button>
-        </div>
-      </div>
+    <div class="flex flex-wrap gap-2">
+      <button
+        v-for="opt in playlistOptions"
+        :key="opt.id"
+        type="button"
+        @click="selected = opt.id"
+        class="px-3 py-2 rounded border text-sm"
+        :class="selected === opt.id
+          ? 'bg-green-500 text-white border-green-600'
+          : 'bg-white text-gray-700 hover:bg-green-50 border-gray-300'"
+      >
+        {{ opt.label }}
+      </button>
     </div>
-  </section>
+
+    <div v-if="error" class="text-red-600 text-sm">{{ error }}</div>
+
+    <div v-if="currentVideoId" class="aspect-video w-full">
+      <iframe
+        class="w-full h-full rounded"
+        :src="embedSrc"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      />
+    </div>
+
+    <div v-if="isLoading" class="text-gray-400 text-sm">Loading playlist...</div>
+    <div v-else-if="!isLoading && items.length === 0 && playlistId" class="text-gray-500 text-sm">
+      No videos found, or this playlist may be private.
+    </div>
+
+    <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+      <button
+        v-for="v in items"
+        :key="v.videoId"
+        type="button"
+        class="text-left bg-white rounded border overflow-hidden hover:shadow"
+        @click="currentVideoId = v.videoId"
+      >
+        <div class="aspect-video w-full bg-gray-100">
+          <img :src="v.thumbnail" :alt="v.title" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-2 sm:p-3 text-xs sm:text-sm text-gray-800">
+          {{ v.title }}
+        </div>
+      </button>
+    </div>
+  </div>
 </template>
 
 <style scoped>

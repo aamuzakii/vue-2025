@@ -15,7 +15,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: JobsView,
+      component: YouTubeMergedView,
     },
     {
       path: '/properties',
@@ -43,8 +43,8 @@ const router = createRouter({
       component: YouTubeView,
     },
     {
-      path: '/yt-public-playlist',
-      name: 'yt-public-playlist',
+      path: '/playlist',
+      name: 'playlist',
       component: YTPublicPlaylistView,
     },
     {

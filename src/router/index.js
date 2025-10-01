@@ -5,6 +5,7 @@ import NotFoundView from '@/views/NotFoundView.vue';
 import JobView from '@/views/JobView.vue';
 import AddJobView from '@/views/AddJobView.vue';
 import EditJobView from '@/views/EditJobView.vue';
+import YouTubeView from '@/views/YouTubeView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/properties/edit/:id',
       name: 'edit-property',
       component: EditJobView,
+    },
+    {
+      path: '/youtube',
+      name: 'youtube',
+      component: YouTubeView,
     },
     {
       path: '/:catchAll(.*)',

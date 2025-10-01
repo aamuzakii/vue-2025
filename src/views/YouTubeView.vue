@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
+import YouTubeRecommendations from '@/components/YouTubeRecommendations.vue';
 
 const input = ref('');
 const autoplay = ref(true);
@@ -77,6 +78,8 @@ const play = () => {
         </div>
 
         <div v-else class="text-gray-400 text-sm">No video loaded.</div>
+
+        <YouTubeRecommendations class="mt-8" keyword="Dokter Mobil" />
       </div>
     </div>
   </section>
